@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+}
+
+.index {
+    min-height: 100vh;
+}
+
+.index .index-content {
+    margin-top: 128px;
+}
+
+.index h1, .index h3 {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.index h1 {
+    color: #009EDB;
+    font-family: Quicksand, sans-serif;
+}
+
+.index h3 {
+    font-family: "Open Sans", sans-serif;
+}
+
+.index .preview-holder {
+    width: 1024px;
+    margin: auto;
+}
+
+.index .preview {
+    width: 1024px;
+}
