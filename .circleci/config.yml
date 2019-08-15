@@ -47,12 +47,12 @@ workflows:
   test-build-deploy:
     jobs:
       - build
-      - test:
-          requires:
-            - build
-      - deploy:
-          requires:
-            - test
-          filters:
-            branches:
-              only: master
+#      - test:
+#          requires:
+#            - build
+#      - deploy:
+#          requires:
+#            - test
+#          filters:
+#            branches:
+#              only: master
