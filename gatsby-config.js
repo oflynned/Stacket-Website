@@ -4,16 +4,26 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const faviconConfig = {
+  resolve: "gatsby-plugin-favicon",
+  options: {
+    logo: "./src/assets/images/favicon.png",
+  },
+}
+
+const fontLoaderConfig = {
+  resolve: "gatsby-plugin-web-font-loader",
+  options: {
+    google: {
+      families: ["Quicksand", "Open Sans"],
+    },
+  },
+}
+
 module.exports = {
   plugins: [
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Quicksand", "Open Sans"],
-        },
-      },
-    },
+    fontLoaderConfig,
+    faviconConfig,
     "gatsby-plugin-react-helmet",
   ],
 }
