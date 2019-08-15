@@ -3,6 +3,9 @@
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
+  "engines": {
+    "node": "10.6.0"
+  },
   "license": "MIT",
   "scripts": {
     "heroku-postbuild": "gatsby build",
