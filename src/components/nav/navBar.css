@@ -1,0 +1,30 @@
+.nav-bar {
+    background-color: red;
+}
+
+.nav-bar .nav-content {
+    margin: auto;
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-bar .nav-content img {
+    height: 48px;
+}
+
+.nav-bar .nav-content ul li {
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 16px;
+    display: inline;
+}
+
+.nav-bar .nav-content ul li:hover {
+    color: #009EDB;
+}
+
+.nav-bar .nav-content ul li.selected {
+    font-weight: 800;
+    color: #009EDB;
+}
