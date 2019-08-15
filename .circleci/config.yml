@@ -16,20 +16,18 @@ jobs:
 
     steps:
       - checkout
-      - steps:
-          - run:
-            command: npm test
+
+      - run: npm test
   deploy:
     docker:
       - image: circleci/node:10.6.0
 
     steps:
       - checkout
-      - steps:
-          - run:
-            command: git remote add dokku dokku@stacket.io:website
-          - run:
-            command: git push dokku master
+
+      - run: git remote add dokku dokku@stacket.io:website
+
+      - run: git push dokku master
 
 workflows:
   version: 2
