@@ -1,52 +1,52 @@
 version: 2.1
-executors:
-  node-executor:
+jobs:
+  build:
+    working_directory: ~/repo
     docker:
-      - image: circleci/node:10
-commands:
-  gatsby-build:
+      - image: circleci/node:7.10
     steps:
       - checkout
       - restore_cache:
-          keys:
-            - yarn-cache-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install Dependencies
-          command: yarn install
+        keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+      - run: npm install
       - save_cache:
-          key: yarn-cache-{{ checksum "yarn.lock" }}
-          paths:
-            - ./node_modules
+        paths:
+          - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+  test:
+    docker:
+      - image: circleci/node:4.8.2-jessie
+    steps:
+      - checkout
       - run:
-          name: Gatsby Build
-          command: yarn build
+          command: npm test
+  deploy:
+    docker:
+      - image: circleci/node:4.8.2-jessie
+      steps:
+        - checkout
+        - run:
+            command: npm test
+    branches:
+      only:
+        - master
+        - git remote add dokku dokku@stacket.io:website
+        - git push dokku master
+
 workflows:
   version: 2
-  build-deploy:
+  test-build-deploy:
     jobs:
-      - build:
-          filters:
+      - build
+      - test:
+          - requires:
+              - build
+      - deploy:
+          - requires:
+              - test
+          - filters:
             branches:
-              ignore:
-                - master
-      - release:
-          filters:
-            branches:
-              only:
-                - master
-jobs:
-  build:
-    executor: node-executor
-    working_directory: ~/repo
-    steps:
-      - gatsby-build
-  release:
-    executor: node-executor
-    working_directory: ~/repo
-    steps:
-      - gatsby-build
-      - run:
-          name: Deploy
-          commands:
-            - git remote add dokku dokku@stacket.io:website
-            - git push dokku master
+              only: master

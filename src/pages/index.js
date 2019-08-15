@@ -25,7 +25,7 @@ class Index extends Component {
         <div className={"index-content"}>
           <h1>Visualise your workflow<br/>&amp; facilitate software development</h1>
           <h3>stacket is the easiest and fastest way to simplify project<br/>
-            management and get a product from idea to production</h3>
+            management and get a product from idea to production. 1</h3>
 
           <div className={"preview-holder"}>
             <img className={"preview"} src={require("../assets/images/macbook-outline.png")}/>
