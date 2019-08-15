@@ -27,7 +27,9 @@ jobs:
 
       - run: git remote add dokku dokku@stacket.io:website
 
-      - run: "ssh -v" git push dokku master
+      - run: ssh -v git@github.com
+
+      - run: git push dokku master
 
 workflows:
   version: 2
