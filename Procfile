@@ -1,1 +1,1 @@
-web: gatsby serve
+web: npm start -- --port ${PORT?}
