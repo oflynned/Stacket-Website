@@ -30,7 +30,7 @@ jobs:
           fingerprints:
             - "f6:29:79:01:75:2c:05:b9:b4:9f:3e:f8:0d:a2:02:67"
 
-        - run: git remote add dokku dokku@stacket.io:website
+      - run: git remote add dokku dokku@stacket.io:website
 
       - run: git push dokku master
 
