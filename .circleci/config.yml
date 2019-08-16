@@ -28,8 +28,6 @@ jobs:
 
       - add_ssh_keys
 
-      - run: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-
       - run: git remote add dokku dokku@stacket.io:website
 
       - run: git push dokku master
