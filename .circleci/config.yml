@@ -28,9 +28,11 @@ jobs:
 
       - add_ssh_keys
 
+      - run: git config core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+
       - run: git remote add dokku dokku@stacket.io:website
 
-      - run: GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git push dokku master
+      - run: git push dokku master
 
 workflows:
   version: 2
