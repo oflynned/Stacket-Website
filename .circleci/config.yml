@@ -26,10 +26,6 @@ jobs:
     steps:
       - checkout
 
-      - add_ssh_keys:
-          fingerprints:
-            - "56:09:98:2e:b6:04:95:0a:23:df:54:a6:ec:ba:82:83"
-
       - run: git remote add dokku dokku@stacket.io:website
 
       - run: git push dokku master
