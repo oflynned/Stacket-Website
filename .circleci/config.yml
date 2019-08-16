@@ -26,7 +26,9 @@ jobs:
     steps:
       - checkout
 
-      - add_ssh_keys
+      - add_ssh_keys:
+          fingerprints:
+            - "f3:37:ee:01:51:5b:63:81:61:9f:82:d9:8f:2c:cf:ab"
 
       - run: git config core.sshCommand 'ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
