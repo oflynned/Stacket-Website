@@ -32,8 +32,6 @@ jobs:
 
       - run: git remote add dokku dokku@stacket.io:website
 
-      - run: echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-
       - run: git push dokku master
 
 workflows:
