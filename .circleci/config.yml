@@ -28,7 +28,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "f6:29:79:01:75:2c:05:b9:b4:9f:3e:f8:0d:a2:02:67"
+            - "15:1e:b6:12:5f:27:31:65:74:d3:26:52:9a:61:6d:52"
 
       - run: git remote add dokku dokku@stacket.io:website
 
