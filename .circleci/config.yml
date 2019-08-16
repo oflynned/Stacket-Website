@@ -26,9 +26,9 @@ jobs:
     steps:
       - checkout
 
-      - add_ssh_keys:
-          fingerprints:
-            - "15:1e:b6:12:5f:27:31:65:74:d3:26:52:9a:61:6d:52"
+      - add_ssh_keys
+
+      - run: ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 
       - run: git remote add dokku dokku@stacket.io:website
 
