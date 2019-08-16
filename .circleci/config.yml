@@ -18,12 +18,19 @@ jobs:
       - checkout
 
       - run: npm test
+
+  add_ssh_keys:
+    fingerprints:
+      - "12:7e:0a:bb:c1:96:c0:0e:46:13:6f:49:86:79:81:d6"
+
   deploy:
     docker:
       - image: circleci/node:10.6.0
 
     steps:
       - checkout
+
+      - add_ssh_keys
 
       - run: git remote add dokku dokku@stacket.io:website
 
