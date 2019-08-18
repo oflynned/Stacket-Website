@@ -22,6 +22,8 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:10.6.0
+        environment:
+
 
     steps:
       - checkout
@@ -30,8 +32,7 @@ jobs:
 
       - run: git remote add dokku dokku@stacket.io:website
 
-      - deploy:
-        command: git push dokku master
+      - run: git push dokku master
 
 workflows:
   version: 2

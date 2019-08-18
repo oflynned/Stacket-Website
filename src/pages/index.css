@@ -2,8 +2,12 @@ body {
     margin: 0;
 }
 
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .index {
-    min-height: 100vh;
+    height: 100vh;
 }
 
 .index .index-content {
@@ -20,7 +24,7 @@ body {
     font-family: Quicksand, sans-serif;
 }
 
-.index h3 {
+.index h3, .index p {
     font-family: "Open Sans", sans-serif;
 }
 
@@ -31,4 +35,42 @@ body {
 
 .index .preview {
     width: 1024px;
+}
+
+.index .email-holder {
+    width: fit-content;
+    margin: 40px auto;
+}
+
+.index input {
+    border: lightgrey solid 1px;
+    border-radius: 4px;
+    padding: 0 8px;
+    height: 30px;
+    width: 350px;
+}
+
+.index input:focus {
+    border: #009EDB solid 1px;
+}
+
+footer {
+    background-color: #F1F2F2;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+footer .line {
+    margin: 20px auto 0;
+    color: #009EDB;
+}
+
+footer p {
+    width: fit-content;
+    margin: 16px auto;
+    color: #009EDB;
+    font-family: Roboto, sans-serif;
+    font-size: 12px;
 }
