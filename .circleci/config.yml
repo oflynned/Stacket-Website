@@ -38,11 +38,10 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - deploy
-#      - build
-#      - test:
-#          requires:
-#            - build
+      - build
+      - test:
+          requires:
+            - build
 #      - deploy:
 #          requires:
 #            - test
