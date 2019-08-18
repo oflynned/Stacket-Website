@@ -8,8 +8,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "heroku-postbuild": "gatsby build",
-    "build": "dot-env gatsby build",
+    "heroku-postbuild": "GATSBY_ENVIRONMENT=production gatsby build",
+    "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
