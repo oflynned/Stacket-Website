@@ -2,37 +2,56 @@ import React, { Component } from "react"
 import { Helmet } from "react-helmet"
 
 import NavBar from "../components/nav/NavBar"
+import { Button } from "../components/input/Button"
 
 import "./index.css"
-import { Button } from "../components/input/Button"
+import { fetchResource } from "../common/http"
 
 class Index extends Component {
   constructor() {
     super()
     this.state = {
+      error: null,
+      email: null,
       submittedEmail: false,
       selectedIndex: 0,
     }
   }
 
-  onNavHeadingClick = index => {
-
+  onEmailChange = event => {
+    this.setState({ email: event.target.value })
   }
 
-  onSubmitEmail = email => {
-    this.setState({ submittedEmail: true })
+  onSubmitEmail = () => {
+    const { email } = this.state
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    }
+
+    if (email) {
+      fetchResource("/waiting-list", options)
+        .then(() => {
+          this.setState({ submittedEmail: true, email: null, error: null })
+        })
+        .catch(error => {
+          this.setState({ error })
+        })
+    }
   }
 
   render() {
     return (
       <div className={"index"}>
         <Helmet> />
-          <title>stacket</title>/>
+          <title>stacket.io | Your project manager</title>/>
         </Helmet>
 
         <NavBar headings={["About"]}
-                selectedIndex={this.state.selectedIndex}
-                onClick={this.onNavHeadingClick}/>
+                selectedIndex={this.state.selectedIndex}/>
 
         <div className={"index-content"}>
           <h1>Visualise your workflow<br/>&amp; facilitate software development</h1>
@@ -40,7 +59,7 @@ class Index extends Component {
             management and get a product from idea to production.</h3>
 
           <div className={"email-holder"}>
-            <input name={"email-input"} placeholder={"email@domain.com"}/>
+            <input name={"email-input"} placeholder={"email@domain.com"} onChange={this.onEmailChange}/>
             <Button label={"Get started"} onClick={this.onSubmitEmail}/>
           </div>
 
@@ -49,9 +68,6 @@ class Index extends Component {
             <h3>Thank you! You will be notified when stacket.io has product availability updates.</h3>
           }
 
-          {/*<div className={"preview-holder"}>*/}
-          {/*  <img className={"preview"} src={require("../assets/images/macbook-outline.png")}/>*/}
-          {/*</div>*/}
         </div>
 
         <footer>
