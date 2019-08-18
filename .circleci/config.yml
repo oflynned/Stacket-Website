@@ -30,7 +30,9 @@ jobs:
 
       - run: git remote add dokku dokku@stacket.io:website
 
-      - run: git push dokku master
+      - deploy:
+        command: |
+          git push dokku master
 
 workflows:
   version: 2
