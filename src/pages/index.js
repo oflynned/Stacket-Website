@@ -2,10 +2,11 @@ import React, { Component } from "react"
 import { Helmet } from "react-helmet"
 
 import NavBar from "../components/nav/NavBar"
-import { Button } from "../components/input/Button"
+import Button from "../components/input/Button"
+
+import { fetchResource } from "../common/http"
 
 import "./index.css"
-import { fetchResource } from "../common/http"
 
 class Index extends Component {
   constructor() {
@@ -55,6 +56,7 @@ class Index extends Component {
 
         <div className={"index-content"}>
           <h1>Visualise your workflow<br/>&amp; facilitate software development</h1>
+          <h3>process.env: {JSON.stringify(process.env)}</h3>
           <h3>stacket is the easiest and fastest way to simplify project<br/>
             management and get a product from idea to production.</h3>
 
