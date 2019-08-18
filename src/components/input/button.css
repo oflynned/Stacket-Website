@@ -1,0 +1,16 @@
+button {
+    height: 32px;
+    width: fit-content;
+    margin: auto 16px 0;
+}
+
+button.primary {
+    border-radius: 4px;
+    border: 1px solid #009EDB;
+    color: white;
+    background-color: #009EDB;
+}
+
+button:hover {
+    cursor: pointer;
+}
