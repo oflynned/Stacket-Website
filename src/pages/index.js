@@ -56,7 +56,6 @@ class Index extends Component {
 
         <div className={"index-content"}>
           <h1>Visualise your workflow<br/>&amp; facilitate software development</h1>
-          <h3>process.env: {process.env.GATSBY_ENVIRONMENT}</h3>
           <h3>stacket is the easiest and fastest way to simplify project<br/>
             management and get a product from idea to production.</h3>
 
